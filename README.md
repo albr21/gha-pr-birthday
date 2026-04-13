@@ -1,10 +1,24 @@
-# <project-name>
+# gha-pr-birthday
 
-<!-- A brief description of the project. -->
+GitHub Action to celebrate PR birthdays.
 
 ## Usage
 
-<!-- Provide instructions on how to use the project, including code examples if applicable. -->
+```yaml
+name: 🤖 Celebrate PR Birthday
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  celebrate-pr-birthdays:
+    runs-on: <runner>
+    name: Celebrate PR Birthday
+    steps:
+      - name: Celebrate PR Birthday
+        uses: albr21/gha-pr-birthday@1.0.0
+```
 
 ## Contributing
 
