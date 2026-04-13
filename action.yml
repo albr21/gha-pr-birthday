@@ -1,0 +1,28 @@
+name: gha-pr-birthday
+
+description: |-
+  GitHub Action to celebrate PR birthday
+
+author: albr21
+branding:
+  icon: gift
+  color: orange
+
+inputs:
+  command-line-interpreter:
+    description: Command line interpreter
+    required: false
+    default: bash
+
+runs:
+  using: composite
+  steps:
+    - name: Set GITHUB_ACTION_PATH variable
+      run: echo "GITHUB_ACTION_PATH=${GITHUB_ACTION_PATH}" >> $GITHUB_ENV
+      shell: ${{ inputs.command-line-interpreter }}
+
+    - name: Celebrate PR birthday
+      uses: albr21/gha-github-script-wrapper@1.0.0
+      with:
+        script: ${{ env.GITHUB_ACTION_PATH }}/js/celebrate-pr-birthday.js
+        command-line-interpreter: ${{ inputs.command-line-interpreter }}
