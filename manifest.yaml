@@ -2,8 +2,10 @@ name: gha-pr-birthday
 description: |-
   GitHub Action to celebrate PR birthday
 version: 1.0.0
-changes: |-
-  [1.0.0]
-    * Initial release
-  [0.0.0]
-    * Under development
+releases:
+  - version: 1.0.0
+    changes:
+      - Initial release
+  - version: 0.0.0
+    changes:
+      - Under development
