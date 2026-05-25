@@ -17,6 +17,14 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Validate Inputs
+      uses: albr21/gha-type-guard@1.0.0
+      with:
+        payload: |
+          [
+            {"value": "${{ inputs.command-line-interpreter }}", "type": "enum", "enumValues": ["bash", "sh", "powershell"]}
+          ]
+
     - name: Set GITHUB_ACTION_PATH variable
       run: echo "GITHUB_ACTION_PATH=${GITHUB_ACTION_PATH}" >> $GITHUB_ENV
       shell: ${{ inputs.command-line-interpreter }}
